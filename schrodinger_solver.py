@@ -1,4 +1,3 @@
-
 import os.path
 import progressbar
 import h5py
@@ -72,8 +71,9 @@ class solver(object):
             for i in bar(range(self.number)):
                 args = (self.mesh,kx[i],ky[i],cx[i],cy[i])
                 potential = self.potential_generator(args)
-                E = [0.5*(np.sqrt(kx[i]) + np.sqrt(ky[i])),]
-                #E, psi = self.solve(potential)
+                #E = [0.5*(np.sqrt(kx[i]) + np.sqrt(ky[i])),]
+                #uncomment the next line if you want 
+                E, psi = self.solve(potential)
                 data[i,:,:,0] = potential
                 labels[i,0] = np.real(E[0])
             
